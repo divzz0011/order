@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Profesional</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="dark">
+  <div class="container">
+    <img src="images/profile.jpg" alt="Foto Profil" class="profile-img" />
+    <h1>Halo, Saya Divzz</h1>
+    <p>Developer Web profesional siap bantu kebutuhan digital Anda.</p>
+
+    <div class="socials">
+      <a href="https://instagram.com/divzz_neverlouse" target="_blank" class="instagram-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+        @Divzz
+      </a>
+    </div>
+
+    <div class="buttons">
+      <button class="button" id="openOrderBtn">💬 Order Sekarang</button>
+      <a href="portfolio.html" class="button">📁 Lihat Portofolio</a>
+    </div>
+  </div>
+
+  <!-- Modal Order -->
+  <div class="modal" id="orderModal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Pilih Orderan</h2>
+      <button class="order-option" data-message="Saya ingin memesan jasa pembuatan website.">Order Website</button>
+      <button class="order-option" data-message="Saya mengalami keluhan pada website.">Keluhan Website</button>
+      <button class="order-option" data-message="Saya ingin tanya mengenai codingan.">Tanya-Tanya</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

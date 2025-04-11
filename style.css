@@ -1,0 +1,194 @@
+/* Font & Layout */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: #121212;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+  
+  /* Animasi */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .container {
+    background: #1e1e1e;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+    text-align: center;
+    max-width: 500px;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  /* Profil */
+  .profile-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid #25d366;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  
+  /* Teks & Tombol */
+  h1, p {
+    margin: 0.5em 0;
+  }
+  
+  p {
+    color: #cccccc;
+  }
+  
+  .button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #2ea45a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .button:hover {
+    background-color: #24914d;
+    transform: scale(1.05);
+  }
+  
+  /* Instagram */
+  .socials {
+    margin: 15px 0;
+  }
+  
+  .instagram-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #e1306c;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .instagram-link img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal.show {
+    display: flex;
+    opacity: 1;
+  }
+  
+  .modal-content {
+    background: #2c2c2c;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  /* Modal Close */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .close:hover {
+    color: #fff;
+  }
+  
+  /* Tombol Order di Modal */
+  .order-option {
+    margin: 10px 0;
+    padding: 12px 20px;
+    width: 100%;
+    background: #2ea45a;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+  }
+  
+  .order-option:hover {
+    background: #24914d;
+    transform: scale(1.03);
+  }
+  
+  /* Portofolio Gallery */
+  .portfolio-gallery {
+    display: grid;
+    gap: 24px;
+    margin-top: 30px;
+  }
+  
+  /* Efek Fade Up */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .project {
+    background: #2c2c2c;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  .project img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 12px;
+  }
+  
+  .project:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+  
+  /* Delay untuk animasi masuk bertahap */
+  .project:nth-child(1) { animation-delay: 0.2s; }
+  .project:nth-child(2) { animation-delay: 0.5s; }
+  .project:nth-child(3) { animation-delay: 0.8s; }
+  
