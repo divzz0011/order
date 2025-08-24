@@ -1,5 +1,7 @@
-/* Font & Layout */
-body {
+/* ============================
+   FONT & LAYOUT
+   ============================ */
+   body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     background: #121212;
@@ -11,12 +13,22 @@ body {
     transition: background 0.4s ease, color 0.4s ease;
   }
   
-  /* Animasi */
+  /* ============================
+     ANIMASI
+     ============================ */
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
   
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ============================
+     CONTAINER
+     ============================ */
   .container {
     background: #1e1e1e;
     padding: 40px;
@@ -24,10 +36,13 @@ body {
     box-shadow: 0 8px 24px rgba(0,0,0,0.6);
     text-align: center;
     max-width: 500px;
+    width: 100%;
     animation: fadeIn 1s ease-out;
   }
   
-  /* Profil */
+  /* ============================
+     PROFIL
+     ============================ */
   .profile-img {
     width: 120px;
     height: 120px;
@@ -38,7 +53,9 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   }
   
-  /* Teks & Tombol */
+  /* ============================
+     TEKS & TOMBOL
+     ============================ */
   h1, p {
     margin: 0.5em 0;
   }
@@ -64,7 +81,9 @@ body {
     transform: scale(1.05);
   }
   
-  /* Instagram */
+  /* ============================
+     INSTAGRAM
+     ============================ */
   .socials {
     margin: 15px 0;
   }
@@ -84,7 +103,9 @@ body {
     height: 20px;
   }
   
-  /* Modal */
+  /* ============================
+     MODAL
+     ============================ */
   .modal {
     display: none;
     position: fixed;
@@ -148,47 +169,396 @@ body {
     transform: scale(1.03);
   }
   
-  /* Portofolio Gallery */
+  /* ============================
+     PORTOFOLIO GALLERY
+     ============================ */
+
+
+
+
+/* ============================
+   PORTFOLIO SECTION
+   ============================ */
+   .portfolio {
+    padding: 60px 20px;
+    background: #111; /* sesuaikan dengan tema Anda */
+    text-align: center;
+  }
+  
+  .portfolio h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #fff;
+  }
+  
+  /* Default (HP & Tablet) → grid */
   .portfolio-gallery {
     display: grid;
-    gap: 24px;
-    margin-top: 30px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
   }
   
-  /* Efek Fade Up */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
+  /* Desktop/Laptop → otomatis pas 1 layar */
+  @media (min-width: 992px) {
+    .portfolio-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 25px;
+      justify-content: center;
+      align-items: center;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+  
+    .project {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #1a1a1a;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+  
+    .project:hover {
+      transform: translateY(-5px);
+    }
+  
+    .project img {
+      width: 100%;
+      height: 200px; /* biar seragam */
+      object-fit: cover;
+      border-bottom: 2px solid #222;
+    }
+  
+    .project h3 {
+      padding: 15px;
+      font-size: 1.2rem;
+      color: #eee;
+    }
+  }
+
+  
+
+
+
+
+
+ 
+  /* ============================
+     RESPONSIVE
+     ============================ */
+  
+  /* Tablet */
+  @media (max-width: 992px) {
+    .container {
+      max-width: 90%;
+      padding: 25px;
+    }
+  
+    .portfolio-gallery {
+      grid-template-columns: 1fr; /* 1 kolom saja */
     }
   }
   
+  /* HP */
+  @media (max-width: 576px) {
+    body {
+      flex-direction: column;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .container {
+      padding: 20px;
+      max-width: 100%;
+      border-radius: 12px;
+    }
+  
+    .profile-img {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .button {
+      width: 100%;
+    }
+  
+    .portfolio-gallery {
+      grid-template-columns: 1fr; /* semua project stack */
+      gap: 16px;
+    }
+  
+    .project {
+      padding: 15px;
+    }
+  }
+
+  
+
+
+
+  /* Desktop horizontal layout */
+@media (min-width: 992px) {
+  .container {
+    max-width: 100%;   /* biar lebar full */
+  }
+
+  .portfolio-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: stretch;
+    gap: 20px;
+    overflow-x: auto;  /* kalau project kebanyakan, bisa discroll */
+    padding: 10px;
+  }
+
   .project {
-    background: #2c2c2c;
-    border-radius: 12px;
-    padding: 20px;
-    text-align: left;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    animation: fadeInUp 0.6s ease forwards;
+    flex: 0 0 300px;   /* setiap project lebar fix */
+    max-height: 350px; /* biar tidak terlalu tinggi */
+    overflow: hidden;
   }
-  
+
   .project img {
     width: 100%;
-    border-radius: 8px;
-    margin-bottom: 12px;
+    height: 180px;
+    object-fit: cover;
   }
-  
-  .project:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+
+
+
+
+
+
+/* Tambahkan stroke/border pada project */
+.project {
+  border: 2px solid #ccc;   /* garis tepi */
+  border-radius: 12px;      /* sudut melengkung biar modern */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* efek bayangan ringan */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efek hover biar lebih hidup */
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Default: Desktop Horizontal */
+.portfolio-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+/* Project Card */
+.project {
+  flex: 1;
+  max-width: 350px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  background: #2c2c2c;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Gambar dalam project */
+.project img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* HP / Mobile (≤ 768px) → Vertical */
+@media (max-width: 768px) {
+  .portfolio-gallery {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  /* Delay untuk animasi masuk bertahap */
-  .project:nth-child(1) { animation-delay: 0.2s; }
-  .project:nth-child(2) { animation-delay: 0.5s; }
-  .project:nth-child(3) { animation-delay: 0.8s; }
-  
+
+  .project {
+    max-width: 90%;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Project Card */
+.project {
+  flex: 1;
+  max-width: 350px;
+  min-height: 300px; /* tinggi minimal biar rata, bisa ditambah sesuai kebutuhan */
+  border: 2px solid #ff4081;
+  border-radius: 12px;
+  background: #1e1e1e;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* supaya teks selalu di dalam */
+  justify-content: flex-start;
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden; /* jaga biar isi tidak keluar */
+  word-wrap: break-word; /* pastikan teks panjang turun ke bawah */
+  white-space: normal;
+}
+
+/* Deskripsi */
+.project p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: auto; /* tetap di dalam card */
+  overflow-wrap: break-word; /* cegah kata panjang keluar */
+}
+
+
+
+
+
+
+/* Default (HP & Tablet) */
+.project img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Desktop (layar besar) */
+@media (min-width: 1024px) {
+  .projects {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .project {
+    flex: 1;
+    max-width: 350px;
+    min-height: 420px; /* semua card rata tinggi */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .project img {
+    max-height: 180px;   /* gambar lebih kecil */
+    object-fit: cover;   /* biar tetap rapi */
+  }
+
+  .project h3 {
+    margin: 10px 0 8px 0;
+  }
+
+  .project p {
+    flex-grow: 1; /* biar teks mengisi ruang sisa */
+  }
+}
+
+
+
+
+
+
+.profile-section {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.profile-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* jarak antar tombol */
+  margin-top: 20px;
+}
+
+.profile-buttons a {
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  background: #f39c12;
+  color: white;
+}
+
+.profile-buttons a:hover {
+  background: #d35400;
+}
+
+/* Khusus untuk HP */
+@media (max-width: 768px) {
+  .profile-buttons {
+    flex-direction: column;   /* tombol jadi vertikal */
+    align-items: center;      /* posisikan ke tengah */
+    gap: 20px;                /* jarak antar tombol lebih lega */
+  }
+
+  .profile-buttons a {
+    width: 80%;               /* tombol melebar biar lebih enak ditekan */
+    text-align: center;
+  }
+}
+
+
+
+
+
+/* Container tombol profil */
+.profile-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* jarak antar tombol */
+  margin-top: 20px;
+}
+
+/* Tombol */
+.profile-buttons a {
+  display: inline-block;  /* default di desktop */
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+  background: #f39c12;
+  color: white;
+}
+
+/* Efek hover */
+.profile-buttons a:hover {
+  background: #d35400;
+}
+
+/* ✅ Khusus untuk HP */
+@media (max-width: 768px) {
+  .profile-buttons {
+    flex-direction: column;   /* tombol jadi vertikal */
+    align-items: center;      /* rata tengah */
+    gap: 20px;                /* jarak antar tombol */
+  }
+
+  .profile-buttons a {
+    display: block;           /* tombol full baris */
+    width: 80%;               /* melebar agar nyaman ditekan */
+    text-align: center;
+  }
+}
